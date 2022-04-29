@@ -1,38 +1,73 @@
-.App {
+body{
+  background-image: url("./assets/fundo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container{  
+  margin-top: 100px;
+  align-content: center;
+}
+
+.card{
+  height: 350px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.856) !important;
+}
+  
+.social_icon span{
+  font-size: 60px;
+  margin-left: 10px;
+  color: blue;
+}
+  
+.social_icon span:hover{
+  color: white;
+  cursor: pointer;
+}
+  
+.card-header h2{
+  margin-top: 25px;
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-body h4{
+  color: black;
+}
+  
+.social_icon{
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+  
+.input-group-prepend span{
+  width: 50px;
+  background-color: #157347;
+  color: black;
+}
+  
+input:focus{
+  outline: 0 0 0 0  !important;
+  box-shadow: 0 0 0 0 !important;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input{
+  margin-bottom: 30px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  
+.remember{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  
+.remember input{
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
 }

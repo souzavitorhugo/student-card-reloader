@@ -79,3 +79,7 @@ input:focus{
 .hidden{
   display: none;
 }
+
+.nav-item{
+  margin: 5px 10px;
+}

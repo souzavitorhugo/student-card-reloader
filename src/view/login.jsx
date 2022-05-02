@@ -3,7 +3,7 @@ import LoginForm from '../components/login-card'
 
 export default function Login(){
     return(
-        <div>
+        <div className="login-page">
             <div className="container">
                 <div className="d-flex justify-content-center h-100">
                     <div className="card">

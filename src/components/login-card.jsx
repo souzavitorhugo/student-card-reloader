@@ -1,4 +1,7 @@
 import React, { useState, useRef, ChangeEvent } from 'react';
+import { Link, Route } from "react-router-dom";
+import {Redirect } from "react-router";
+import Perfil from "../view/perfil"
 
 export default function LoginForm() {
 

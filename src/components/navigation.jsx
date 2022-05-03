@@ -1,24 +1,51 @@
-import { React, useState } from 'react';
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
-export default function Menu() {
-
-    const [page, setPage] = useState('') 
+export function Menu() {
 
     return (
-        <ul className="nav nav-pills justify-content-center">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+                <div className="container-fluid justify-content-center">
+                    
+                    <Link to="/home">
+                        <img className="navbar-brand" alt="logo-actu" src={require('../assets/logo.jpeg')}></img>
+                    </Link>
 
-            <div className="navbar-bran"> <img alt="logo" src="../assets/logo.jpeg"></img> </div>
+                    <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
-            <li className="nav-item">
-                <Link to="/" className="nav-link active" aria-current={page}>Home</Link>
-            </li>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <li className="nav-item">
-                <Link to="./login" className="nav-link active text-light" aria-current={page}>Acesse seu perfil</Link>
-            </li>
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-        </ul>
+                            <li className="nav-item">
+                                <Link to="/home" className="nav-link active" aria-current="page" href="#">Home</Link>
+                            </li>
+
+                            <li className="nav-item button-acesso">
+                                <Link to="/login" className="nav-link">Acesse sua conta</Link>
+                            </li>
+
+                            {/* descomentar caso necessário 
+
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a className="dropdown-item" href="#">Action</a></li>
+                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><hr className="dropdown-divider"/></li>
+                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+
+                            </li> */}
+
+                        </ul>
+                
+                    </div>
+                </div>
+            </nav>        
     )
 }

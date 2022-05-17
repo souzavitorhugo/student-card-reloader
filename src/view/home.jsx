@@ -10,7 +10,21 @@ export default function Home() {
             </header>
 
             <Slideshow/>
+
+            <section id="cards">
+
+                <h3 class="w-100 text-center my-4">
+                    Vantagens de utilizar o cartão <br/> 
+                    CriciumaCard: 
+                </h3>
+                
+                <div className="card-container">
+
+
+                </div>
+
+            </section>
         </page>
 
     )
-}
+}   

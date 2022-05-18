@@ -4,7 +4,9 @@
   "description": "",
   "main": "banco.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon banco.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon banco.js"
   },
   "keywords": [],
   "author": "",

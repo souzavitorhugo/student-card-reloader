@@ -1,4 +1,5 @@
-import React, { useState, useRef, ChangeEvent } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import Axios from "axios";
 import { Link, Route } from "react-router-dom";
 import {Redirect } from "react-router";
 import Perfil from "../view/perfil"
@@ -12,6 +13,26 @@ export default function LoginForm() {
     const senhaIncorreta = useRef(null);
     const usuarioIncorreto = useRef(null);
 
+    function validation(userLogging, users) {
+        for(var i = 0; i<users.length; i++){
+            let usuarioPermitido = {usuario: users[i]}
+            debugger;
+            if(users[i].codigo_cartao == userLogging.usuario && users[i].senha_cartao == userLogging.password){
+                usuarioPermitido = {
+                    usuario: users[i], 
+                    'perm': true
+                }
+                return usuarioPermitido;
+            } else {   
+                usuarioPermitido = {
+                    usuario: users[i], 
+                    'perm': false
+                }         
+                return usuarioPermitido
+            }
+        }
+    }
+
     function fazerLogin(e) {
         e.preventDefault();
 
@@ -24,23 +45,26 @@ export default function LoginForm() {
             inputCodigo.current.classList.add('border-danger')
             inputCodigo.current.focus()
             usuarioIncorreto.current.classList.remove('hidden')
-        }
-
-        if(!authenticateLogin.senha) {
+        } else if(!authenticateLogin.password) {
             inputSenha.current.classList.add('border-danger')
             inputSenha.current.focus()
             senhaIncorreta.current.classList.remove('hidden')
+        } else {
+            Axios.get("http://localhost:5000/login").then((response) => {
+                let users = response.data
+                if (!users.errno) {
+                    let validacao = validation(authenticateLogin, users)
+                    if(validacao.perm == true) {
+                        debugger;
+                        alert('Acesso permitido')
+                    } else {
+                        debugger;
+                        alert('Acesso negado')
+                    }
+                }
+    
+            })
         }
-
-        //caso pase na verificação do front
-        //faz a verificação na API, caso passar, adicionar hidden na ref senhaincorreta e no usuarioincorreto 
-        //e passar
-
-        // inputCodigo.current.classList.remove('border-danger')
-        // inputSenha.current.classList.remove('border-danger')
-
-        // usuarioIncorreto.current.classList.toggle('hidden')
-        // senhaIncorreta.current.classList.toggle('hidden')
         console.log(authenticateLogin)
     }
 
@@ -51,7 +75,7 @@ export default function LoginForm() {
 
             <form action="" method="POST">
 
-                <small className="text-danger hidden" ref={usuarioIncorreto}> O usuário está incorreto ou vazio </small>
+                <small className="text-danger hidden" ref={usuarioIncorreto}> O usuário está vazio </small>
 
                 <div className="input-group form-group">
                                         

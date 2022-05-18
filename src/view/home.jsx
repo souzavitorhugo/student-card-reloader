@@ -13,7 +13,7 @@ export default function Home() {
 
             <section id="cards">
 
-                <h3 class="w-100 text-center my-4">
+                <h3 className="w-100 text-center my-4">
                     Vantagens de utilizar o cartão <br/> 
                     CriciumaCard: 
                 </h3>

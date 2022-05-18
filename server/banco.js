@@ -1,34 +1,28 @@
-const Express = require('express');
-const app = Express();
-const mysql = require('mysql2');
-const Sequelize = require('sequelize');
-const db = mysql.createPool({
+const express = require('express');
+const app = express();
+const mysql = require("mysql"); 
+const cors = require('cors');
+
+const database = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'projetotopicos'
+})
+
+app.use(cors());
+// app.use(express.json())
+
+app.get('/login', (req, res) => {
+    let query = `SELECT * FROM usuarios`
+
+    database.query(query, (err, result)=> {
+        if (err) res.send(err)
+        else { res.send(result)}
+    })
+})
+
+app.listen('5000', () => {
+    console.log('rodando servidor')
 });
 
-// app.listen(3001, ()=> {
-//     console.log('rodando servidor')
-// })
-
-// app.get("/", (req, res) => {
-//     let query = "SELECT * FROM usuarios"
-
-//     db.query(query, (err, result) => {
-//         console.log(result)
-//         console.log(err)
-//     })
-// })
-
-const sequelize = new Sequelize('projetotopicos', 'root', '', {
-    host: 'localhost',
-    dialect: 'mysql'
-})
-
-sequelize.authenticate().then(() => {
-    console.log('Conexao realizada com sucesso')
-}).catch((err) => {
-    console.log('Erro ao conectar' + err)
-})

@@ -5,7 +5,7 @@ export default function Home() {
     return(
 
         <page>
-            <header className="page-header center-mid">
+            <header className="page-header">
                 <Menu/>
             </header>
 

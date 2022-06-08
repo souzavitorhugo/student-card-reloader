@@ -9,7 +9,7 @@ export default function Perfil() {
                 <Menu />
             </header>
 
-            <h1 className=""> Perfil do Usuário </h1>
+            <h1 className=""> Recarga </h1>
 
         </page>
 

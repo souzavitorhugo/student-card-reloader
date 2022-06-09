@@ -25,10 +25,17 @@ export function Menu() {
                         </li>
                     </ul>
 
-                    <ul class="nav navbar-nav my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/perfil"><i class="fas fa-user"></i> Meu Perfil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Sair</a></li>
-                    </ul>
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong>Perfil</strong>
+                        </a>
+                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="/perfil"><i class="fas fa-user"></i> Meu Perfil</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="/login"><i class="fas fa-sign-in-alt"></i> Sair</a></li>
+                        </ul>
+                    </div>
 
                 </div>
             </div>

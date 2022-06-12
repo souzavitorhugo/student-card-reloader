@@ -17,7 +17,7 @@ export default function LoginForm() {
         for(var i = 0; i<users.length; i++){
             let usuarioPermitido = {usuario: users[i]}
             debugger;
-            if(users[i].codigo_cartao == userLogging.usuario && users[i].senha_cartao == userLogging.password){
+            if(users[i].email == userLogging.usuario && users[i].senha_cartao == userLogging.password){
                 usuarioPermitido = {
                     usuario: users[i], 
                     'perm': true

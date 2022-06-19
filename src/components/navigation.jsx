@@ -30,7 +30,7 @@ export function Menu() {
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <strong>Perfil</strong>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="/perfil"><i class="fas fa-user"></i> Meu Perfil</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="/login"><i class="fas fa-sign-in-alt"></i> Sair</a></li>

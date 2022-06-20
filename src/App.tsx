@@ -10,9 +10,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
@@ -20,7 +18,6 @@ function App() {
         <Route path="/recarga" element={<Recarga />} />
 
       </Routes>
-
     </BrowserRouter>
 
   );

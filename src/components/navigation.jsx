@@ -37,6 +37,11 @@ export function Menu() {
                         </ul>
                     </div>
 
+//                     <ul class="nav navbar-nav my-2 my-lg-0">
+//                         <li class="nav-item"><a class="nav-link" href="/perfil"><i class="fas fa-user"></i> Meu Perfil</a></li>
+//                         <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Sair</a></li>
+//                     </ul>
+
                 </div>
             </div>
         </nav>

@@ -8,6 +8,7 @@ export default function Perfil() {
             <header className="page-header">
                 <Menu />
             </header>
+
             <div className="container py-3">
                 <div className="card">
                     <div className="card-header">

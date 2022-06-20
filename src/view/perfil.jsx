@@ -1,6 +1,7 @@
 import { Menu } from "../components/navigation.jsx"
 import { FormControl } from "../components/form-control";
 
+
 export default function Perfil() {
     return (
 
@@ -20,7 +21,6 @@ export default function Perfil() {
                 <FormControl id="cpf" label="CPF" ></FormControl>
                 <button className="btn btn-success">Salvar</button>
             </div>
-
         </page>
 
 

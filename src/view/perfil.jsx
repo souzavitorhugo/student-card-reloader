@@ -4,9 +4,7 @@ import { FormControl } from "../components/form-control";
 
 export default function Perfil() {
     return (
-
         <page>
-
             <header className="page-header">
                 <Menu />
             </header>

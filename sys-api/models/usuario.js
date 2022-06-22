@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Usuario.belongsTo(models.Aluno, {
         foreignikey: "AlunoId",
+      }),
+      models.Usuario.belongsTo(models.Cartao, {
+        foreignikey: "CartaoId",
       })
     }
   }
@@ -26,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     cpf: DataTypes.STRING,
     telefone: DataTypes.STRING,
     tipo: DataTypes.STRING,
+    CartaoId: DataTypes.INTEGER,
     AlunoId: DataTypes.INTEGER
   }, {
     sequelize,

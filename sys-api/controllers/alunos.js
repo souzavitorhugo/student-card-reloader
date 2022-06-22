@@ -20,6 +20,7 @@ exports.findOne = async (req, res) => {
     try {
       const aluno = await Aluno.findOne({
         where: { id },
+        include: Escola
       });
   
       if (!!aluno) {

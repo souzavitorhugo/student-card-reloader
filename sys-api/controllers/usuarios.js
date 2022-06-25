@@ -25,3 +25,16 @@ exports.checkLogin = async (req, res) => {
     res.status(401).json({ error: "Usuário e/ou Senha inválido(s)" });
   }
 };
+
+exports.listAll = async (req, res) => {
+  try {
+    const usuarios = await Usuario.findAll({
+      order: [["nome", "ASC"]]
+    });
+
+    res.json(usuarios);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};

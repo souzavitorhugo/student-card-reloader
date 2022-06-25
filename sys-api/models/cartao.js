@@ -5,12 +5,11 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Cartao extends Model {
     static associate(models) {
-      models.Aluno.hasMany(models.Usuario, {
+      models.Cartao.hasMany(models.Usuario, {
         foreignikey: "CartaoId",
       })
     }
   }
-  
   Cartao.init({
     numero: DataTypes.INTEGER,
     senha: DataTypes.STRING,

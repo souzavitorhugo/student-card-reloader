@@ -8,15 +8,11 @@ module.exports = (sequelize, DataTypes) => {
       models.Aluno.belongsTo(models.Escola, {
         foreignikey: "EscolaId",
       }),
-      models.Aluno.hasMany(models.Cartao, {
-        foreignikey: "AlunoId",
-      }),
       models.Aluno.hasMany(models.Usuario, {
         foreignikey: "AlunoId",
       })
     }
   }
-  
   Aluno.init({
     nome: DataTypes.STRING,
     email: {

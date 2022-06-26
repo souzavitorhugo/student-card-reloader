@@ -38,3 +38,58 @@ exports.listAll = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+exports.findOne = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const usuario = await Usuario.findOne({
+      where: { id },
+    });
+
+    if (!!usuario) {
+      res.json(usuario);
+    } else {
+      res.status(404).json({ error: "Usuario não encontrado" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.create = async (req, res) => {
+  try {
+    const novoUsuario = await Usuario.create({
+      nome: req.body.nome,
+      sobrenome: req.body.sobrenome,
+      email: req.body.email,
+      senha: req.body.senha,
+      cpf: req.body.cpf,
+      telefone: req.body.telefone,
+      tipo: req.body.tipo,
+      CartaoId: req.body.CartaoId || 1,
+      AlunoId: req.body.AlunoId || 1
+    });
+
+    res.json(novoUsuario);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.destroy = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deleteUsuario = await Usuario.destroy({
+      where: { id },
+    });
+
+    res.json({ success: !!deleteUsuario });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};

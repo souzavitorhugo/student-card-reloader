@@ -3,8 +3,7 @@ const { Aluno, Cartao } = require("../models");
 exports.listAll = async (req, res) => {
   try {
     const cartao = await Cartao.findAll({
-      order: [["numero", "ASC"]],
-      include: Aluno
+      order: [["numero", "ASC"]]
     });
 
     res.json(cartao);
@@ -43,6 +42,35 @@ exports.create = async (req, res) => {
     });
 
     res.json(novoCartao);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.update = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const payload = {};
+    if (!!req.body.numero) {
+      payload.numero = req.body.numero;
+    }
+    if (!!req.body.senha) {
+      payload.senha = req.body.senha;
+    }
+    if (!!req.body.validade) {
+      payload.validade = req.body.validade;
+    }
+    if (!!req.body.credito) {
+      payload.credito = req.body.credito;
+    }
+
+    const updatedCartao = await Cartao.update(payload, {
+      where: { id },
+    });
+
+    res.json({ success: !!updatedCartao && +updatedCartao[0] > 0 });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

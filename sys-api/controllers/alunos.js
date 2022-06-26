@@ -49,6 +49,32 @@ exports.create = async (req, res) => {
   }
 };
 
+exports.update = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const payload = {};
+    if (!!req.body.nome) {
+      payload.name = req.body.nome;
+    }
+    if (!!req.body.email) {
+      payload.email = req.body.email;
+    }
+    if (!!req.body.EscolaId) {
+      payload.EscolaId = req.body.EscolaId;
+    }
+
+    const updatedAluno = await Aluno.update(payload, {
+      where: { id },
+    });
+
+    res.json({ success: !!updatedAluno && +updatedAluno[0] > 0 });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
 exports.destroy = async (req, res) => {
   const { id } = req.params;
 

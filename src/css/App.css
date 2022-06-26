@@ -1,3 +1,8 @@
+
+.bg-padrao{
+  background-color: rgb(236, 236, 236);
+}
+
 .login-page{
   background-image: url("../assets/fundo.jpeg");
   background-size: cover;
@@ -32,12 +37,12 @@
   cursor: pointer;
 }
   
-.card-header h2{
+/* .card-header h2{
   margin-top: 25px;
   color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
-}
+} */
 
 .card-body h4{
   color: black;
@@ -95,11 +100,6 @@ input:focus{
   justify-content: center;
 }
 
-.nav-item{
-  margin: 5px 10px;
-}
-
-.carousel-item img{
-  height: 90vh;
-  width: 100vw;
+.column{
+  flex-direction: column;
 }

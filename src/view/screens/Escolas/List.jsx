@@ -1,12 +1,13 @@
-import { Menu } from "../../components/navigation.jsx"
+import { Link } from "react-router-dom";
+import { Menu } from "../../components/GeneralComponents/main-navigation"
 
 export default function List() {
-    return (
+    return(
         <page>
             <header className="page-header">
                 <Menu />
             </header>
-            <p>Lista de Alunos</p>
+            <p>Lista de Escolas</p>
         </page>
     )
 }

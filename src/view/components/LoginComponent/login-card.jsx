@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import Axios from "axios";
 import { Link, Route } from "react-router-dom";
 import {Redirect } from "react-router";
-import Perfil from "../view/perfil"
 
 export default function LoginForm() {
 
@@ -36,36 +35,33 @@ export default function LoginForm() {
     function fazerLogin(e) {
         e.preventDefault();
 
-        let authenticateLogin = {
+        if(codigo == ''){
+            senhaIncorreta.current.classList.add('hidden');
+
+            inputCodigo.current.classList.add('border-danger');
+            inputCodigo.current.focus();
+            usuarioIncorreto.current.classList.remove('hidden');
+
+
+            return false
+        }
+
+        if(senha == '') {
+            usuarioIncorreto.current.classList.add('hidden');
+
+            inputSenha.current.classList.add('border-danger');
+            inputSenha.current.focus();
+            senhaIncorreta.current.classList.remove('hidden');
+
+            return false
+        }
+
+        const dtoLogin = {
             'usuario': codigo,
             'password': senha
         }
 
-        if(!authenticateLogin.usuario) {
-            inputCodigo.current.classList.add('border-danger')
-            inputCodigo.current.focus()
-            usuarioIncorreto.current.classList.remove('hidden')
-        } else if(!authenticateLogin.password) {
-            inputSenha.current.classList.add('border-danger')
-            inputSenha.current.focus()
-            senhaIncorreta.current.classList.remove('hidden')
-        } else {
-            Axios.get("http://localhost:5000/login").then((response) => {
-                let users = response.data
-                if (!users.errno) {
-                    let validacao = validation(authenticateLogin, users)
-                    if(validacao.perm == true) {
-                        debugger;
-                        alert('Acesso permitido')
-                    } else {
-                        debugger;
-                        alert('Acesso negado')
-                    }
-                }
-    
-            })
-        }
-        console.log(authenticateLogin)
+        console.log(dtoLogin)
     }
 
     return (
@@ -87,7 +83,8 @@ export default function LoginForm() {
 
                 </div>
 
-                <small className="text-danger hidden" ref={senhaIncorreta}> A senha está incorreta ou vazia </small>
+                <small className="text-danger hidden" ref={senhaIncorreta}> A senha está vazia </small>
+
                 <div className="input-group form-group">
                                         
                     <div className="input-group-prepend">
@@ -98,15 +95,11 @@ export default function LoginForm() {
 
                 </div>
 
-                
-
-                <div className="d-grid">
+                <div className="my-3 d-grid">
                     <button type="submit" className="btn btn-success btn-block" onClick={fazerLogin}>Entrar</button>
                 </div>
 
             </form>
-
-            <br></br>
 
         </div>
     )

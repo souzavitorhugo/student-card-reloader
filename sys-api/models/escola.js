@@ -10,9 +10,8 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
-  
   Escola.init({
-    name: DataTypes.STRING,
+    nome: DataTypes.STRING,
     local: DataTypes.STRING,
     cnpj: DataTypes.STRING,
     qtdeAlunos: DataTypes.INTEGER

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const { TOKEN_SECRET } = require("../env");
-const { Usuario } = require("../models");
+const { Usuario, Cartao, Aluno } = require("../models");
 
 exports.checkLogin = async (req, res) => {
   const { email, senha } = req.body;
@@ -30,6 +30,7 @@ exports.listAll = async (req, res) => {
   try {
     const usuarios = await Usuario.findAll({
       order: [["nome", "ASC"]],
+      include: [Cartao, Aluno]
     });
 
     res.json(usuarios);
@@ -45,6 +46,7 @@ exports.findOne = async (req, res) => {
   try {
     const usuario = await Usuario.findOne({
       where: { id },
+      include: [Cartao, Aluno]
     });
 
     if (!!usuario) {

@@ -29,7 +29,7 @@ exports.checkLogin = async (req, res) => {
 exports.listAll = async (req, res) => {
   try {
     const usuarios = await Usuario.findAll({
-      order: [["nome", "ASC"]]
+      order: [["nome", "ASC"]],
     });
 
     res.json(usuarios);
@@ -73,6 +73,50 @@ exports.create = async (req, res) => {
     });
 
     res.json(novoUsuario);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.update = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const payload = {};
+    if (!!req.body.nome) {
+      payload.nome = req.body.nome;
+    }
+    if (!!req.body.nome) {
+      payload.sobrenome = req.body.sobrenome;
+    }
+    if (!!req.body.email) {
+      payload.email = req.body.email;
+    }
+    if (!!req.body.senha) {
+      payload.senha = req.body.senha;
+    }
+    if (!!req.body.cpf) {
+      payload.cpf = req.body.cpf;
+    }
+    if (!!req.body.telefone) {
+      payload.telefone = req.body.telefone;
+    }
+    if (!!req.body.tipo) {
+      payload.tipo = req.body.tipo;
+    }
+    if (!!req.body.CartaoId) {
+      payload.CartaoId = req.body.CartaoId;
+    }
+    if (!!req.body.AlunoId) {
+      payload.AlunoId = req.body.AlunoId;
+    }
+
+    const updatedUsuario = await Usuario.update(payload, {
+      where: { id },
+    });
+
+    res.json({ success: !!updatedUsuario && +updatedUsuario[0] > 0 });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

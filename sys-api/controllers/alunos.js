@@ -55,7 +55,7 @@ exports.update = async (req, res) => {
   try {
     const payload = {};
     if (!!req.body.nome) {
-      payload.name = req.body.nome;
+      payload.nome = req.body.nome;
     }
     if (!!req.body.email) {
       payload.email = req.body.email;

@@ -7,7 +7,7 @@ router.post("/login", usuariosController.checkLogin);
 router.get("/", usuariosController.listAll);
 router.get("/:id", usuariosController.findOne);
 router.post("/", usuariosController.create);
-//router.put("/:id", usuariosController.update);
+router.put("/:id", usuariosController.update);
 router.delete("/:id", usuariosController.destroy);
 
 // exporting routes to use in app

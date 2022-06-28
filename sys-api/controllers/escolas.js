@@ -48,6 +48,35 @@ exports.create = async (req, res) => {
   }
 };
 
+exports.update = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const payload = {};
+    if (!!req.body.nome) {
+      payload.nome = req.body.nome;
+    }
+    if (!!req.body.local) {
+      payload.local = req.body.local;
+    }
+    if (!!req.body.cnpj) {
+      payload.cnpj = req.body.cnpj;
+    }
+    if (!!req.body.qtdeAlunos) {
+      payload.qtdeAlunos = req.body.qtdeAlunos;
+    }
+
+    const updatedEscola = await Escola.update(payload, {
+      where: { id },
+    });
+
+    res.json({ success: !!updatedEscola && +updatedEscola[0] > 0 });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
 exports.destroy = async (req, res) => {
   const { id } = req.params;
 

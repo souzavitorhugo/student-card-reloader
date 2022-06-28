@@ -2,41 +2,38 @@
 import { Fragment } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import AppLayout from "./view/AppLayout";
+/* Layouts */
+import AppLayout from "./view/layouts/AppLayout";
 
-import Login from './view/login';
-import Home from './view/home';
-import Perfil from './view/perfil';
-import Recarga from './view/recarga';
+/* Usuarios */
+import PaginaUsuario from "./view/screens/Usuario/MainUsuario";
+import Login from './view/screens/Home/login';
 
 /* ESCOLAS */
-import EscolasLista from "./screens/Escolas/List";
-
-/* ALUNOS */
-import AlunosLista from "./screens/Alunos/List";
+import EscolasLista from "./view/screens/Escolas/List";
 
 /* CARTOES */
-import CartaoLista from "./screens/Cartao/List";
+import CartaoLista from "./view/screens/Cartao/List";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Fragment>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/perfil" element={<Perfil />} />
-          <Route path="/recarga" element={<Recarga />} />
+
+          <Route path="/perfil" element={<PaginaUsuario />} />
+
           <Route path="/escolas">
             <Route index element={<EscolasLista />} />
           </Route>
-          <Route path="/alunos">
-            <Route index element={<AlunosLista />} />
-          </Route>
+
           <Route path="/cartao">
             <Route index element={<CartaoLista />} />
           </Route>
+          
         </Fragment>
       </Routes>
     </BrowserRouter >

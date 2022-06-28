@@ -7,7 +7,7 @@ export function Menu() {
             <div className="container-fluid">
 
                 <Link to="/home">
-                    <img className="navbar-brand" alt="logo-actu" src={require('../assets/logo.jpeg')}></img>
+                    <img className="navbar-brand" alt="logo-actu" src={require('../../../assets/logo.jpeg')}></img>
                 </Link>
 
                 <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
-import Header from "../components/navigation";
+import Header from "../../components/GeneralComponents/navigation";
 
 export default function AppLayout({ headerProps }) {
   return (

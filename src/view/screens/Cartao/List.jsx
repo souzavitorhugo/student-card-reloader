@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Menu } from "../../components/navigation.jsx"
+import { Menu } from "../../components/GeneralComponents/main-navigation"
 
 export default function List() {
     return(
@@ -7,7 +6,7 @@ export default function List() {
             <header className="page-header">
                 <Menu />
             </header>
-            <p>Lista de Escolas</p>
+            <p>Lista de Carteirinhas</p>
         </page>
     )
 }

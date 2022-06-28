@@ -1,4 +1,4 @@
-import LoginForm from '../components/login-card'
+import LoginForm from '../../components/LoginComponent/login-card'
 
 
 export default function Login(){
@@ -16,8 +16,12 @@ export default function Login(){
 
                             </div>
 
-                            <h2>STCR</h2>
+                            <div className="w-100 pt-4">
+                                <h2 className="w-100 text-center text-black">STCR</h2>
 
+                                <p className='mt-1 mb-3 w-100 text-center'> Acesse sua conta para verificar o saldo </p>
+                            </div>
+                            
                         </div>
                         <LoginForm/>
                     </div>

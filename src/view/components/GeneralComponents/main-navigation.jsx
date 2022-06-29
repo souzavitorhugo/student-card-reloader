@@ -28,7 +28,7 @@ export function Menu() {
                         </li>
 
                         <li className="nav-item dropdown">
-                            <p href="#" className="nav-link text-white dropdown-toggle"
+                            <p href="#" className="pointer nav-link text-white dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <strong>Alunos</strong>
                             </p>
@@ -42,7 +42,7 @@ export function Menu() {
                         </li>
 
                         <li className="nav-item dropdown">
-                            <p href="#" className="nav-link text-white dropdown-toggle"
+                            <p href="#" className="pointer nav-link text-white dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <strong>Escolas</strong>
                             </p>

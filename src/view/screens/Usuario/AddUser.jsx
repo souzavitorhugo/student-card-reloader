@@ -93,9 +93,9 @@ export default function AddUser() {
                         placeholder="Escolha o Cartão"
                         type="select"
                         label="Cartão a Vincular"
-                        value={formik.values.idAluno}
+                        value={formik.values.idCartao}
                         onChange={formik.handleChange}
-                        error={hasFormError(formik, "idAluno")}
+                        error={hasFormError(formik, "idCartao")}
                     />
 
                     <Input

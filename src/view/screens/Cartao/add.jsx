@@ -66,7 +66,7 @@ export default function AddCartao() {
 
             <Input
                 id="validade"
-                type="text"
+                type="date"
                 label="Validade"
                 placeholder="01/01/0001"
                 value={formik.values.validade}

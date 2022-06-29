@@ -5,7 +5,6 @@ import {listEscolas} from '../../../controllers/escolas'
 export default function TableAlunos() {
 
     const [escolas, setEscolas] = useState([]);
-
     async function fetchListaEscolas() {
       try {
         const data = await listEscolas();
@@ -31,9 +30,6 @@ export default function TableAlunos() {
               <th className="text-center" style={{ width: 250 }}>
                 CNPJ
               </th>
-              <th className="text-center" style={{ width: 250 }}>
-                Quantidade Alunos
-              </th>
             </tr>
           </thead>
             {!!escolas && (
@@ -51,7 +47,6 @@ export default function TableAlunos() {
                             <td>{item.nome}</td>
                             <td className="text-center">{item.local}</td>
                             <td className="text-center">{item.cnpj}</td>
-                            <td className="text-center">{item.qtdeAlunos}</td>
                         </tr>
                     ))}
                 </tbody>

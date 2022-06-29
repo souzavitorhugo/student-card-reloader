@@ -6,35 +6,62 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from "./view/layouts/AppLayout";
 
 /* Usuarios */
-import PaginaUsuario from "./view/screens/Usuario/MainUsuario";
+import PaginaUsuario from "./view/screens/Usuario/MainUsuarioPadrao";
+import PaginaUsuarioAdm from "./view/screens/Usuario/MainUsuarioAdm";
+import EditUser from "./view/screens/Usuario/EditUser";
 import Login from './view/screens/Home/login';
 
 /* ESCOLAS */
 import EscolasLista from "./view/screens/Escolas/List";
 
+/* ESCOLAS */
+import ListaAlunos from "./view/screens/Alunos/list";
+
 /* CARTOES */
 import CartaoLista from "./view/screens/Cartao/List";
 
+import {useUsuario} from './context/usuario'
+
+
 function App() {
+  const { isLogged } = useUsuario();
+  const { isAdm } = useUsuario();
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Fragment>
-          <Route path="/" element={<Login />} />
+      <Routes>          
+          {isLogged ? ( 
+            <Fragment> 
+              {isAdm ? (
+                <Fragment> 
+                  <Route path="/">
+                    <Route index element={<PaginaUsuarioAdm />} />
+                  </Route>
 
-          <Route path="/login" element={<Login />} />
+                  <Route path="/alunos">
+                    <Route index element={<ListaAlunos/>} />
+                  </Route>
 
-          <Route path="/perfil" element={<PaginaUsuario />} />
+                  <Route path="/escolas">
+                    <Route index element={<EscolasLista/>} />
+                  </Route>
 
-          <Route path="/escolas">
-            <Route index element={<EscolasLista />} />
-          </Route>
+                  <Route path="/cartao">
+                    <Route index element={<CartaoLista/>} />
+                  </Route>
 
-          <Route path="/cartao">
-            <Route index element={<CartaoLista />} />
-          </Route>
-          
-        </Fragment>
+                  <Route path="/edit/:id">
+                    <Route index element={<EditUser/>} />
+                  </Route>
+                </Fragment>
+
+              ) : (
+                <Route index element={<PaginaUsuario/>} />
+              )}
+            </Fragment>
+          ) : (
+            <Route index element={<Login/>}/>
+          )}
       </Routes>
     </BrowserRouter >
 

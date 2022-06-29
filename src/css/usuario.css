@@ -1,5 +1,5 @@
-#pagUsuarioPadrao main div{
- background-color: #f5d074;  
+.main-container{
+ background-color: #44a36f; 
 }
 
 #pagUsuarioPadrao main p{
@@ -13,8 +13,59 @@
     height: 250px;
     background-color: white;
 
-    border: 2px solid black;
+    border: 1px solid white;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.saldo-container{
+    max-width: 25%;
+    height: 100%;
+    margin: 0 0 0 25px;
+    align-self: baseline;
+}
+
+.btn-recarregar{
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px
+}
+
+.btn-recarregar:hover{
+    background-color: #1f4d34
+}
+
+.input-valor{
+    border: none;
+    border-bottom: 1px solid;
+    text-decoration: none;
+    margin-left: 20px
+}
+
+.container-botao{
+    margin-top: 25px;
+    width: 30%;
+}
+
+.container-botao .btn-recarregar{
+    background-color: #44a36f; 
+}
+
+.container-botao .btn-recarregar:hover{
+    background-color: #1f4d34
+}
+
+.hidden{
+    display: none;
+}
+
+.container-usuarios{
+    width: 100%;
+}
+
+.container-table{
+    width: 80%;
+    margin: 50px 0 0 0;
 }
 
 @media(max-width: 1250px){
@@ -24,8 +75,16 @@
     }
 }
 
+@media(max-width: 600px){
+    .saldo-container{
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
 @media(max-width: 399px){
     .card-user{
         height: 200px;
     }
 }
+

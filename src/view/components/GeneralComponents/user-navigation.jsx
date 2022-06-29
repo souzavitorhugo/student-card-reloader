@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+
+import {useUsuario} from '../../../context/usuario'
+import {useAuth} from '../../../context/Auth'
+
 
 export function MenuUsuarioPadrao() {
+    const { logout } = useAuth();
+    const { usuario } = useUsuario();
+    const {navigate} = useNavigate();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-padrao sticky-top bg-padrao">
             <div className="container-fluid">
 
-                <Link to="/home">
+                <Link to="/">
                     <img className="navbar-brand" alt="logo-actu" src={require('../../../assets/logo.jpeg')}></img>
                 </Link>
 
@@ -19,16 +26,16 @@ export function MenuUsuarioPadrao() {
                     <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                     </ul>
 
-                    <div class="dropdown center-mid">
-                        <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
+                    <div className="dropdown center-mid pointer">
+                        <p className="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <strong>Perfil</strong>
-                        </a>
+                            <strong>{usuario?.nome}</strong>
+                        </p>
 
-                        <ul class="w-100 dropdown-menu dropdown-menu-end bg-padrao" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item text-dark" href="/perfil"><i class="fas fa-user"></i> Meu Perfil</a></li>
+                        <ul className="w-100 dropdown-menu dropdown-menu-end bg-padrao" aria-labelledby="navbarDropdownMenuLink">
                             
-                            <li><a class="dropdown-item text-dark" href="/login"><i class="fas fa-sign-in-alt"></i> Sair</a></li>
+                            <li><a className="dropdown-item text-dark" href="#user-logout" onClick={e => { e.preventDefault(); logout();
+}}><i className="fas fa-sign-in-alt"></i> Sair</a></li>
                         </ul>
                     </div>
                 </div>

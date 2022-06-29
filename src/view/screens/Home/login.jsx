@@ -1,9 +1,10 @@
 import LoginForm from '../../components/LoginComponent/login-card'
-
+import LoadingHolder from '../../screens/loadigHolder'
 
 export default function Login(){
-    return(
+    return(   
         <div className="login-page">
+            <LoadingHolder loading={false}/>
             <div className="container">
                 <div className="d-flex justify-content-center h-100">
                     <div className="card">

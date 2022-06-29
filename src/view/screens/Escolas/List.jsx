@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom";
 import { Menu } from "../../components/GeneralComponents/main-navigation"
 
-export default function List() {
+import TableEscolas from "../../components/LoginComponent/table-escolas"
+
+export default function ListaAlunos() {
     return(
         <page>
-            <header className="page-header">
-                <Menu />
+            <header>
+                <Menu/>
             </header>
-            <p>Lista de Escolas</p>
+
+            <main id="listaAlunosAdm">
+
+                <div className="center-mid column container-usuarios py-5">
+
+                    <h1 className=""> 
+                        Escolas Cadastrados
+                    </h1>
+
+                    <TableEscolas/>
+
+                </div>
+            </main>
         </page>
     )
 }

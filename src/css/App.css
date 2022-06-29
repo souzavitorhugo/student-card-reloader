@@ -92,6 +92,7 @@ input:focus{
   background-color: white;
   box-shadow: rgb(0 0 0 / 35%) 0px 2px 7px;
   font-size: 12.5px;
+
 }
 
 .center-mid{
@@ -102,4 +103,20 @@ input:focus{
 
 .column{
   flex-direction: column;
+}
+
+.row{
+  flex-direction: row;
+}
+
+.space-evenly{
+  justify-content: space-evenly;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.nav-item p{
+  margin-bottom:0;
 }

@@ -13,12 +13,12 @@
 
 CREATE TABLE `escolas`(
 	`id` int NOT NULL PRIMARY KEY auto_increment,
-    `nome` varchar(100) NOT NULL,
-    `local` varchar(50) NOT NULL,
-    `cnpj` varchar(20) NOT NULL,
-    `qtdeAlunos` int NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `local` varchar(50) NOT NULL,
+  `cnpj` varchar(20) NOT NULL,
+  `qtdeAlunos` int NOT NULL,
 	`createdAt` datetime,
-	`updateAt` datetime
+	`updatedAt` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -31,7 +31,7 @@ CREATE TABLE `alunos` (
   `email` varchar(100) NOT NULL,
   `EscolaId` int NOT NULL,
   `createdAt` datetime,
-  `updateAt` datetime,
+  `updatedAt` datetime,
   FOREIGN KEY (`EscolaId`) REFERENCES escolas(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,11 +41,12 @@ CREATE TABLE `alunos` (
 
 CREATE TABLE `cartaos`(
 	`id` int NOT NULL PRIMARY KEY auto_increment,
-    `numero` int NOT NULL,
-    `senha` varchar(50) NOT NULL,
-    `validade` date NOT NULL,    
+  `numero` int NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `validade` date NOT NULL,
+  `credito` float NOT NULL, 
 	`createdAt` datetime,
-	`updateAt` datetime
+	`updatedAt` datetime
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -63,7 +64,7 @@ CREATE TABLE `usuarios` (
   `CartaoId` int,
   `AlunoId` int,
   `createdAt` datetime,
-  `updateAt` datetime,
+  `updatedAt` datetime,
   FOREIGN KEY (`CartaoId`) REFERENCES cartaos(`id`),
   FOREIGN KEY (`AlunoId`) REFERENCES alunos(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -74,6 +75,3 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (nome, sobrenome, email, senha, cpf, telefone, tipo) 
 	VALUES ("Gustavo", "Mazzuco", "gustavo@teste.com","123456","000.000.000-00","48999999999",0);
-
-
-

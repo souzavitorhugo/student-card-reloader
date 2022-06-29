@@ -54,7 +54,7 @@ export default function TableUsuarios() {
                 Escola
               </th>
               <th className="text-center" style={{ width: 146 }}>
-                Tipo usuario <br/>(0 = Adimn)
+                Tipo usuario <br/>(0 = Admin)
               </th>
               <th className="text-center" style={{ width: 146 }}>
                 Editar

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import {listEscolas} from '../../../controllers/escolas'
 
 export default function TableAlunos() {

@@ -120,3 +120,7 @@ input:focus{
 .nav-item p{
   margin-bottom:0;
 }
+
+.space-between{
+  justify-content: space-between;
+}

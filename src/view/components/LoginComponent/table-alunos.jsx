@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import {listAlunos} from '../../../controllers/alunos'
 
 export default function TableAlunos() {

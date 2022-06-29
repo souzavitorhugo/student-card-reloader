@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-
 import { useFormik } from "formik";
+
 import * as Yup from "yup";
+
 import Input from '../../components/GeneralComponents/input-sist';
 import {hasFormError} from '../../components/GeneralComponents/util';
 import {createUsuarios} from "../../../controllers/usuarios"
@@ -10,36 +11,47 @@ import {listCartoes} from '../../../controllers/cartao'
 
 
 const validationSchema = Yup.object({
-    idAluno: Yup.string().required("Campo obrigatório"),
+    AlunoId: Yup.string().required("Campo obrigatório"),
+    CartaoId: Yup.string().required("Campo obrigatório"),
     nome: Yup.string().required("Campo obrigatório"),
     sobrenome: Yup.string().required("Campo obrigatório"),
     senha: Yup.string().required("Campo obrigatório"),
     cpf: Yup.string().required("Campo obrigatório"),
     email: Yup.string().email("E-mail inválido").required("Campo obrigatório"),
     telefone: Yup.string().required("Campo obrigatório"),
+    tipo: Yup.string().required("Campo obrigatório"),
 });
 
 export default function AddUser() {
 
     const [alunos, setAlunos] = useState([]);
     const [cartoes, setCartoes] = useState([]);
+    const tipoUserSistema = [
+        {usuario: 0, nome: 'Admin'},
+        {usuario: 1, nome: 'Aluno'}
+    ]
 
     const formik = useFormik({
         initialValues: {
-            idAluno: "",
+            AlunoId: "",
+            CartaoId: "",
             nome: "",
             sobrenome: "",
             email: "",
             senha: "",
             cpf: "",
-            telefone: ""
+            telefone: "",
+            tipo: ""
         },
         validationSchema,
         onSubmit: async values => {
+            console.log(values)
           try {
             const data = await createUsuarios(values);
             if(!!data?.id){
-                console.log(data)
+                debugger;
+                window.alert('Usuario Criado com sucesso');
+                window.location.reload();
             }
           } catch (err) {
             alert(err.message);
@@ -77,25 +89,25 @@ export default function AddUser() {
 
                 <div className="d-flex column w-50">
                     <Input
-                        id="idAluno"
+                        id="AlunoId"
                         options={alunos.map(aluno => ({value: aluno.id, label: aluno.nome}))}
                         placeholder="Escolha o Aluno"
                         type="select"
                         label="Aluno a Vincular"
-                        value={formik.values.idAluno}
+                        value={formik.values.AlunoId}
                         onChange={formik.handleChange}
-                        error={hasFormError(formik, "idAluno")}
+                        error={hasFormError(formik, "AlunoId")}
                     />
 
                     <Input
-                        id="idCartao"
+                        id="CartaoId"
                         options={cartoes.map(cartao => ({value: cartao.id, label: `Cartão: ${cartao.numero} / Saldo: R$ ${cartao.credito}`}))}
                         placeholder="Escolha o Cartão"
                         type="select"
                         label="Cartão a Vincular"
-                        value={formik.values.idCartao}
+                        value={formik.values.CartaoId}
                         onChange={formik.handleChange}
-                        error={hasFormError(formik, "idCartao")}
+                        error={hasFormError(formik, "CartaoId")}
                     />
 
                     <Input
@@ -159,6 +171,19 @@ export default function AddUser() {
                         value={formik.values.telefone}
                         onChange={formik.handleChange}
                         error={hasFormError(formik, "telefone")}
+                    />
+                </div>
+
+                <div className="d-flex row w-100">
+                    <Input
+                        id="tipo"
+                        options={tipoUserSistema.map(user => ({value: user.usuario, label: user.nome}))}
+                        placeholder="Escolha o Tipo do Usuário"
+                        type="select"
+                        label="Tipo do usuário"
+                        value={formik.values.tipo}
+                        onChange={formik.handleChange}
+                        error={hasFormError(formik, "tipo")}
                     />
                 </div>
             </div>

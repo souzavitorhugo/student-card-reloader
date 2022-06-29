@@ -1,9 +1,6 @@
 
 import { Fragment } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-
-/* Layouts */
-import AppLayout from "./view/layouts/AppLayout";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /* Usuarios */
 import PaginaUsuario from "./view/screens/Usuario/MainUsuarioPadrao";
@@ -14,7 +11,7 @@ import Login from './view/screens/Home/login';
 /* ESCOLAS */
 import EscolasLista from "./view/screens/Escolas/List";
 
-/* ESCOLAS */
+/* ALUNOS */
 import ListaAlunos from "./view/screens/Alunos/list";
 
 /* CARTOES */

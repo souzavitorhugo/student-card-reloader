@@ -1,6 +1,8 @@
 import { useEffect, useState, Fragment } from 'react';
-import {listUsuarios, destroyUsuarios} from '../../../controllers/usuarios'
+
 import {Link} from "react-router-dom"
+
+import {listUsuarios, destroyUsuarios} from '../../../controllers/usuarios'
 
 export default function TableUsuarios() {
 

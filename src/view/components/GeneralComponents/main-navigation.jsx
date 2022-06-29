@@ -1,4 +1,4 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import {useUsuario} from '../../../context/usuario'
 import {useAuth} from '../../../context/Auth'
@@ -6,7 +6,6 @@ import {useAuth} from '../../../context/Auth'
 export function Menu() {
     const { logout } = useAuth();
     const { usuario } = useUsuario();
-    const {navigate} = useNavigate();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">

@@ -1,11 +1,12 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Menu } from "../../components/GeneralComponents/main-navigation.jsx";
 
-import LoadingHolder from "../loadigHolder";
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+
+import LoadingHolder from "../loadigHolder";
+import { Menu } from "../../components/GeneralComponents/main-navigation.jsx";
 import Input from '../../components/GeneralComponents/input-sist';
 import {hasFormError} from '../../components/GeneralComponents/util';
 import {listAlunos} from '../../../controllers/alunos'
